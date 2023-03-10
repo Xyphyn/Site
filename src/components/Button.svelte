@@ -7,9 +7,7 @@
 </script>
 
 {#if link}
-    <a
-        {href}
-        class="capitalize hover:underline flex flex-row items-center gap-2 {clazz}"
+    <a {href} class="hover:underline flex flex-row items-center gap-2 {clazz}"
         ><slot /></a
     >
 {/if}

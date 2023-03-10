@@ -2,6 +2,7 @@
 import { CollectionEntry, getCollection } from 'astro:content'
 import Button from '../../components/Button.svelte'
 import Default from '../../layouts/default.astro'
+import '../../style/blog.css'
 
 export async function getStaticPaths() {
     const posts = await getCollection('blog')
@@ -17,8 +18,60 @@ const { Content, headings } = await post.render()
 ---
 
 <Default title={post.data.title}>
-    <div class="bg-zinc-900 m-4 p-8 max-w-3xl w-screen h-full">
+    <div
+        class="dark:bg-zinc-900 bg-slate-200 rounded-lg m-4 p-8 max-w-3xl justify-self-start self-center"
+    >
         <Button href="/blog" class="text-slate-500">{'< Back'}</Button>
+        <header class="flex flex-col">
+            <h1>
+                {post.data.title}
+
+                <div class="flex flex-row gap-4">
+                    {
+                        post.data.tags?.map((tag) => (
+                            <div
+                                class="rounded-full bg-slate-300 dark:bg-zinc-700
+                             text-sm px-2 py-1 inline-flex flex-row items-center gap-1 font-normal mt-2"
+                            >
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke-width="1.5"
+                                    stroke="currentColor"
+                                    class="w-4 h-4"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 005.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 009.568 3z"
+                                    />
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M6 6h.008v.008H6V6z"
+                                    />
+                                </svg>
+
+                                {tag}
+                            </div>
+                        ))
+                    }
+                </div>
+            </h1>
+            {
+                () => {
+                    if (post.data.image) {
+                        return (
+                            <img
+                                class="h-52 w-max rounded-lg object-contain self-center"
+                                src={post.data.image}
+                            />
+                        )
+                    }
+                }
+            }
+        </header>
         <Content />
     </div>
 </Default>

@@ -15,12 +15,10 @@ const { title } = Astro.props
 
         <title>{title}</title>
     </head>
-    <body class="bg-black text-white">
+    <body class="dark:bg-black dark:text-white bg-slate-50 text-slate-900">
         <Background />
         <Navbar />
-        <div
-            class="flex flex-col h-[calc(100vh-10rem)] items-center justify-center"
-        >
+        <div class="flex flex-col items-center justify-center">
             <slot />
         </div>
     </body>
@@ -30,18 +28,25 @@ const { title } = Astro.props
     @font-face {
         font-family: 'Jetbrains Mono';
         font-display: swap;
-        src: url('/JetBrainsMono-Regular.woff2') format('woff2');
+        src: url('/Inter.woff2') format('woff2');
     }
 
     @font-face {
         font-family: 'Jetbrains Mono';
         font-display: swap;
-        src: url('/JetBrainsMono-Bold.woff2') format('woff2');
+        src: url('/Inter-bold.woff2') format('woff2');
         font-weight: bold;
     }
 
     :root {
         font-family: 'Jetbrains Mono', sans-serif;
+        color-scheme: dark;
+    }
+
+    html,
+    body {
+        margin: 0;
+        padding: 0;
     }
 
     body {
@@ -55,5 +60,20 @@ const { title } = Astro.props
                 transparent 1px
             );
         background-size: 7em 7em;
+    }
+
+    @media (prefers-color-scheme: light) {
+        body {
+            background-image: linear-gradient(
+                    rgba(0, 0, 0, 0.05) 1px,
+                    transparent 1px
+                ),
+                linear-gradient(90deg, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+            background-size: 7em 7em;
+        }
+
+        :root {
+            color-scheme: light;
+        }
     }
 </style>

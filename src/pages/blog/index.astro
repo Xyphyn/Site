@@ -10,7 +10,7 @@ const posts = await getCollection('blog')
         {
             posts.map((post) => (
                 <a
-                    class="bg-gray-900 shadow-lg p-8 w-96 h-48 flex flex-col group cursor-pointer"
+                    class="bg-slate-200 dark:bg-gray-900 shadow-lg p-8 w-96 min-h-[12rem] flex flex-col group cursor-pointer rounded-lg"
                     href={`/blog/${post.slug}`}
                 >
                     <span class="font-bold group-hover:underline">
@@ -19,6 +19,17 @@ const posts = await getCollection('blog')
                     <span class="text-slate-500 group-hover:underline">
                         {post.data.description}
                     </span>
+
+                    {() => {
+                        if (post.data.image) {
+                            return (
+                                <img
+                                    src={post.data.image}
+                                    class="w-[90%] self-center rounded-lg m-4"
+                                />
+                            )
+                        }
+                    }}
                     <span class="text-slate-500 group-hover:underline place-self-end mt-auto">
                         {post.data.author}
                     </span>

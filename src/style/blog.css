@@ -1,0 +1,43 @@
+:root {
+    color-scheme: dark;
+}
+
+* {
+    line-height: 1.75rem;
+}
+
+h1 {
+    @apply text-3xl font-bold my-8;
+}
+
+h2 {
+    @apply text-2xl font-bold my-8;
+}
+
+h3 {
+    @apply text-xl font-bold my-8;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+p {
+    @apply my-4;
+}
+
+img {
+    @apply rounded-lg;
+}
+
+code {
+    @apply text-black dark:text-white bg-slate-300 dark:bg-zinc-800 px-2 py-1 rounded-lg !important;
+}
+
+pre {
+    @apply rounded-lg p-4 my-4 bg-zinc-800 !important;
+}
+
+pre code {
+    @apply bg-transparent dark:bg-transparent !important;
+}

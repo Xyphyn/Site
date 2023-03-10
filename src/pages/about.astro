@@ -1,0 +1,77 @@
+---
+import Colored from '../components/Colored.svelte'
+import ProgressBar from '../components/ProgressBar.svelte'
+import Default from '../layouts/default.astro'
+---
+
+<Default title="About">
+    <h1 class="font-bold text-4xl"><Colored>About</Colored></h1>
+    <div
+        class="dark:bg-zinc-900 bg-slate-200 rounded-lg mt-4 p-8 w-[90%] max-w-lg"
+    >
+        <h2 class="font-bold text-3xl text-center">James</h2>
+        <p class="text-center mt-4">
+            I'm a developer that makes stuff in my free time.
+        </p>
+    </div>
+    <div
+        class="dark:bg-zinc-900 bg-slate-200 rounded-lg mt-4 p-8 w-[90%] max-w-lg"
+    >
+        <h2 class="font-bold text-3xl text-center">Skills</h2>
+        <div class="flex flex-row w-full items-center justify-between my-2">
+            <span>Kotlin</span>
+            <ProgressBar progress={80} />
+        </div>
+        <div class="flex flex-row w-full items-center justify-between my-2">
+            <span>TypeScript</span>
+            <ProgressBar progress={60} />
+        </div>
+        <div class="flex flex-row w-full items-center justify-between my-2">
+            <span>Svelte</span>
+            <ProgressBar progress={70} />
+        </div>
+        <div class="flex flex-row w-full items-center justify-between my-2">
+            <span>Design</span>
+            <ProgressBar progress={4} />
+        </div>
+    </div>
+    <div
+        class="dark:bg-zinc-900 bg-slate-200 rounded-lg mt-4 p-8 w-[90%] max-w-lg"
+    >
+        <h2 class="font-bold text-3xl text-center">Setup</h2>
+        <span class="text-center">Hardware</span>
+        <div class="flex flex-row w-full items-center justify-between my-2">
+            <span class="font-bold">CPU</span>
+            <span>Ryzen 5 5600X</span>
+        </div>
+        <div class="flex flex-row w-full items-center justify-between my-2">
+            <span class="font-bold">GPU</span>
+            <span>RX 6600 XT</span>
+        </div>
+        <div class="flex flex-row w-full items-center justify-between my-2">
+            <span class="font-bold">RAM</span>
+            <span>16GB DDR4 2800MHz</span>
+        </div>
+        <div class="flex flex-row w-full items-center justify-between my-2">
+            <span class="font-bold">Storage</span>
+            <span>Samsung 870 Evo 1TB</span>
+        </div>
+        <span>Software</span>
+        <div class="flex flex-row w-full items-center justify-between my-2">
+            <span class="font-bold">OS</span>
+            <span>Arch Linux</span>
+        </div>
+        <div class="flex flex-row w-full items-center justify-between my-2">
+            <span class="font-bold">Kernel</span>
+            <span>6.2.2</span>
+        </div>
+        <div class="flex flex-row w-full items-center justify-between my-2">
+            <span class="font-bold">DE</span>
+            <span>GNOME</span>
+        </div>
+        <div class="flex flex-row w-full items-center justify-between my-2">
+            <span class="font-bold">Code Editor</span>
+            <span>Neovim</span>
+        </div>
+    </div>
+</Default>
