@@ -1,0 +1,57 @@
+---
+import Navbar from '../components/Navbar.svelte'
+
+const { title } = Astro.props
+---
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="generator" content={Astro.generator} />
+
+        <title>{title}</title>
+    </head>
+    <body class="dark:bg-black dark:text-white bg-slate-50 text-slate-800">
+        <Navbar />
+        <div
+            class="flex flex-col items-center justify-center bg-slate-800 shadow-lg"
+        >
+            <slot />
+        </div>
+    </body>
+</html>
+
+<style>
+    @font-face {
+        font-family: 'Jetbrains Mono';
+        font-display: swap;
+        src: url('/JetBrainsMono-Regular.woff2') format('woff2');
+    }
+
+    @font-face {
+        font-family: 'Jetbrains Mono';
+        font-display: swap;
+        src: url('/JetBrainsMono-Bold.woff2') format('woff2');
+        font-weight: bold;
+    }
+
+    :root {
+        font-family: 'Jetbrains Mono', sans-serif;
+    }
+
+    body {
+        background-image: linear-gradient(
+                rgba(255, 255, 255, 0.05) 1px,
+                transparent 1px
+            ),
+            linear-gradient(
+                90deg,
+                rgba(255, 255, 255, 0.05) 1px,
+                transparent 1px
+            );
+        background-size: 3em 3em;
+    }
+</style>

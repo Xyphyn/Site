@@ -1,0 +1,24 @@
+---
+import { CollectionEntry, getCollection } from 'astro:content'
+import Button from '../../components/Button.svelte'
+import Default from '../../layouts/default.astro'
+
+export async function getStaticPaths() {
+    const posts = await getCollection('blog')
+
+    const map = posts.map((p) => ({
+        params: { id: p.slug },
+        props: { post: p },
+    }))
+    return map
+}
+const post: CollectionEntry<'blog'> = Astro.props.post
+const { Content, headings } = await post.render()
+---
+
+<Default title={post.data.title}>
+    <div class="bg-zinc-900 m-4 p-8 max-w-3xl w-screen h-full">
+        <Button href="/blog" class="text-slate-500">{'< Back'}</Button>
+        <Content />
+    </div>
+</Default>
