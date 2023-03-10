@@ -26,6 +26,7 @@ const posts = await getCollection('blog')
                                 <img
                                     src={post.data.image}
                                     class="w-[90%] self-center rounded-lg m-4"
+                                    alt={post.data.description}
                                 />
                             )
                         }
