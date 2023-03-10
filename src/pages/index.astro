@@ -20,7 +20,7 @@ import Default from '../layouts/default.astro'
             class="hover:underline">blog.</a
         >
     </p>
-    <div class="flex flex-row gap-4 mt-4">
+    <div class="flex flex-row gap-4 mt-4 flex-wrap">
         <Button href="https://github.com/Xyphyn">
             <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -72,8 +72,9 @@ import Default from '../layouts/default.astro'
             <img
                 src="/content/imagi.webp"
                 width={720}
+                height={362}
                 alt="The Imagi website, a real-time social app."
-                class="rounded-lg max-w-[720px] w-[80%]"
+                class="rounded-lg max-w-[720px] w-full max-h-[362px] h-auto"
             />
             <div>
                 <a
