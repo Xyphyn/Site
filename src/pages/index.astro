@@ -1,7 +1,14 @@
 ---
+import { getCollection } from 'astro:content'
 import Button from '../components/Button.svelte'
 import Colored from '../components/Colored.svelte'
+import Post from '../components/Post.svelte'
+import PostList from '../components/PostList.svelte'
 import Default from '../layouts/default.astro'
+
+const posts = (await getCollection('blog')).sort(
+    (a, b) => b.data.date.getTime() - a.data.date.getTime()
+)
 ---
 
 <Default title="Xylight">
@@ -20,7 +27,7 @@ import Default from '../layouts/default.astro'
             class="hover:underline">blog.</a
         >
     </p>
-    <div class="flex flex-row gap-4 mt-4 flex-wrap">
+    <div class="flex flex-row gap-4 mt-4 flex-wrap items-center justify-center">
         <Button href="https://github.com/Xyphyn">
             <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -64,52 +71,6 @@ import Default from '../layouts/default.astro'
             james@xylight.us
         </Button>
     </div>
-    <h1 class="font-bold text-2xl mt-4"><Colored>What I've Made</Colored></h1>
-    <div class="flex flex-col m-8 items-center gap-8">
-        <div
-            class="flex flex-col-reverse md:flex-row justify-center items-center gap-8"
-        >
-            <img
-                src="/content/imagi.webp"
-                width={720}
-                height={362}
-                alt="The Imagi website, a real-time social app."
-                class="rounded-lg max-w-[720px] w-full max-h-[362px] h-auto"
-            />
-            <div>
-                <a
-                    class="font-bold text-2xl hover:underline"
-                    href="https://imagi.xylight.us">Imagi</a
-                >
-                <p>
-                    A real-time social media app built with Pocketbase, Svelte,
-                    and Tailwind.
-                </p>
-            </div>
-        </div>
-        <!-- <div
-            class="border-l dark:border-white border-black text-right h-16 m-4"
-        > -->
-    </div>
-    <div
-        class="flex flex-col-reverse md:flex-row-reverse justify-center items-center gap-8"
-    >
-        <img
-            src="/content/neptune.webp"
-            loading="lazy"
-            width={420}
-            class="rounded-lg max-w-[420px] w-[80%]"
-            alt="The Neptune Discord bot"
-        />
-        <div>
-            <a
-                class="font-bold text-2xl hover:underline"
-                href="https://neptune.xylight.us">Neptune</a
-            >
-            <p>
-                A general-purpose discord bot that can translate, moderate,
-                manage, and more.
-            </p>
-        </div>
-    </div>
+    <h1 class="text-3xl mt-4 font-bold"><Colored>Posts</Colored></h1>
+    <PostList posts={posts} />
 </Default>

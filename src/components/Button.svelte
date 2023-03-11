@@ -7,7 +7,9 @@
 </script>
 
 {#if link}
-    <a {href} class="hover:underline flex flex-row items-center gap-2 {clazz}"
+    <a
+        {href}
+        class="px-2 py-1 hover:shadow-lg hover:-translate-y-[2px] rounded-lg transition-all flex flex-row items-center gap-2 {clazz}"
         ><slot /></a
     >
 {/if}

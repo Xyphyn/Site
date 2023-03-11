@@ -3,7 +3,7 @@ title: 'Caddy is awesome'
 date: 2023-3-10 00:00
 description: 'why was i not using it before'
 author: 'James'
-image: ''
+image: '/content/caddy/caddy.webp'
 
 tags: ['caddy', 'web']
 ---
