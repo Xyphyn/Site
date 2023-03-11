@@ -1,6 +1,6 @@
 ---
 title: 'Hello, Astro!'
-date: 9-3-2023
+date: 2023-3-9
 description: 'mmm quite fast'
 author: 'James'
 image: 'https://picsum.photos/300/200'

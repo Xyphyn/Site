@@ -1,6 +1,6 @@
 ---
 title: 'Caddy is awesome'
-date: 10-3-2023
+date: 2023-3-10 00:00
 description: 'why was i not using it before'
 author: 'James'
 image: ''

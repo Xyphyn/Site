@@ -41,3 +41,15 @@ pre {
 pre code {
     @apply bg-transparent dark:bg-transparent !important;
 }
+
+blockquote {
+    @apply border-l-4 border-l-slate-400;
+}
+
+blockquote p {
+    @apply ml-4;
+}
+
+ul {
+    @apply list-disc ml-4;
+}

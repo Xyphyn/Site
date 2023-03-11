@@ -2,7 +2,9 @@
 import { getCollection } from 'astro:content'
 import Default from '../../layouts/default.astro'
 
-const posts = await getCollection('blog')
+let posts = (await getCollection('blog')).sort(
+    (a, b) => b.data.date.getTime() - a.data.date.getTime()
+)
 ---
 
 <Default title="Blog">

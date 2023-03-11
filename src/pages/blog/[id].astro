@@ -5,7 +5,7 @@ import Default from '../../layouts/default.astro'
 import '../../style/blog.css'
 
 export async function getStaticPaths() {
-    const posts = await getCollection('blog')
+    let posts = await getCollection('blog')
 
     const map = posts.map((p) => ({
         params: { id: p.slug },
